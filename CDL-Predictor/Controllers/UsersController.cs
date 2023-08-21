@@ -19,12 +19,12 @@ namespace CDL_Predictor.Controllers
         }
 
 
-        [HttpGet("GetByUsername")]
-        public IActionResult GetByUsername(string username)
+        [HttpGet("GetByEmail")]
+        public IActionResult GetByEmail(string email)
         {
-            var user = _userRepo.GetByUsername(username);
+            var user = _userRepo.GetByEmail(email);
 
-            if (username == null || user == null)
+            if (email == null || user == null)
             {
                 return NotFound();
             }
@@ -38,9 +38,21 @@ namespace CDL_Predictor.Controllers
         {
             _userRepo.Add(user);
             return CreatedAtAction(
-                "GetByUsername",
-                new { username = user.Username },
+                "GetByEmail",
+                new { email = user.Email },
                 user);
+        }
+
+
+        [HttpPut("{id}")]
+        public IActionResult Put(int id, Users user)
+        {
+            if (id != user.Id)
+            {
+                return BadRequest();
+            }
+            _userRepo.Update(user);
+            return NoContent();
         }
 
 

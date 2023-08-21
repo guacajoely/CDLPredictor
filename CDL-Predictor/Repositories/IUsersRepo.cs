@@ -4,7 +4,8 @@ namespace CDL_Predictor.Repositories
 {
     public interface IUsersRepo
     {
-        Users GetByUsername(string username);
+        Users GetByEmail(string username);
         void Add(Users user);
+        void Update(Users user);
     }
 }

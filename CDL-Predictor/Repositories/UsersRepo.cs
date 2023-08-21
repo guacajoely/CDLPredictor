@@ -7,7 +7,7 @@ namespace CDL_Predictor.Repositories
     {
         public UsersRepo(IConfiguration configuration) : base(configuration) { }
 
-        public Users GetByUsername(string username)
+        public Users GetByEmail(string email)
         {
             using (var conn = Connection)
             {
@@ -17,9 +17,9 @@ namespace CDL_Predictor.Repositories
                     cmd.CommandText = @"
                         SELECT Id, Username, [Password], Email, FaveTeam, ImageURL
                           FROM [Users]
-                         WHERE Username = @Username";
+                         WHERE Email = @Email";
 
-                    DbUtils.AddParameter(cmd, "@Username", username);
+                    DbUtils.AddParameter(cmd, "@Email", email);
 
                     Users user = null;
 
@@ -64,6 +64,38 @@ namespace CDL_Predictor.Repositories
                     DbUtils.AddParameter(cmd, "@ImageURL", user.ImageURL);
 
                     user.Id = (int)cmd.ExecuteScalar();
+                }
+            }
+        }
+
+
+
+        public void Update(Users user)
+        {
+            using (var conn = Connection)
+            {
+                conn.Open();
+                using (var cmd = conn.CreateCommand())
+                {
+                    cmd.CommandText = @"
+                        UPDATE Users
+                        SET
+                            [Username] = @Username,
+                            [Password] = @Password,
+                            [Email] = @Email,
+                            [FaveTeam] = @FaveTeam,
+                            [ImageURL] = @ImageURL
+                        WHERE Id = @Id
+                        ";
+                    cmd.Parameters.AddWithValue("@Id", user.Id);
+                    cmd.Parameters.AddWithValue("@Username", user.Username);
+                    cmd.Parameters.AddWithValue("@Password", user.Password);
+                    cmd.Parameters.AddWithValue("@Email", user.Email);
+                    cmd.Parameters.AddWithValue("@FaveTeam", DbUtils.ValueOrDBNull(user.FaveTeam));
+                    cmd.Parameters.AddWithValue("@ImageURL", DbUtils.ValueOrDBNull(user.ImageURL));
+                    
+
+                    cmd.ExecuteNonQuery();
                 }
             }
         }
