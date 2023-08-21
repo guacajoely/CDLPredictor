@@ -6,5 +6,6 @@ namespace CDL_Predictor.Repositories
     {
         List<Predictions> GetPredictionsByUserId(int userId);
         void Add(Predictions prediction);
+        void Delete(int id);
     }
 }
