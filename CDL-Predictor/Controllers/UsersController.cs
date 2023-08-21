@@ -32,6 +32,19 @@ namespace CDL_Predictor.Controllers
         }
 
 
+        [HttpGet("{id}")]
+        public IActionResult GetByAdmissionId(int id)
+        {
+            Users user = _userRepo.GetById(id);
+
+            if (user == null)
+            {
+                return NotFound();
+            }
+            return Ok(user);
+        }
+
+
 
         [HttpPost]
         public IActionResult Post(Users user)
@@ -52,7 +65,10 @@ namespace CDL_Predictor.Controllers
                 return BadRequest();
             }
             _userRepo.Update(user);
-            return NoContent();
+            return CreatedAtAction(
+                "GetByEmail",
+                new { email = user.Email },
+                user);
         }
 
 

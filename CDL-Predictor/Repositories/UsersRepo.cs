@@ -1,11 +1,29 @@
 ﻿using CDL_Predictor.Models;
 using CDL_Predictor.Utils;
+using Microsoft.Data.SqlClient;
 
 namespace CDL_Predictor.Repositories
 {
     public class UsersRepo : BaseRepo, IUsersRepo
     {
         public UsersRepo(IConfiguration configuration) : base(configuration) { }
+
+
+
+        private Users NewUserFromReader(SqlDataReader reader)
+        {
+            return new Users()
+            {
+                Id = DbUtils.GetInt(reader, "Id"),
+                Username = DbUtils.GetString(reader, "Username"),
+                Password = DbUtils.GetString(reader, "Password"),
+                Email = DbUtils.GetString(reader, "Email"),
+                FaveTeam = DbUtils.GetNullableInt(reader, "FaveTeam"),
+                ImageURL = DbUtils.GetNullableString(reader, "ImageURL")
+            };
+        }
+
+
 
         public Users GetByEmail(string email)
         {
@@ -24,17 +42,10 @@ namespace CDL_Predictor.Repositories
                     Users user = null;
 
                     var reader = cmd.ExecuteReader();
+
                     if (reader.Read())
                     {
-                        user = new Users()
-                        {
-                            Id = DbUtils.GetInt(reader, "Id"),
-                            Username = DbUtils.GetString(reader, "Username"),
-                            Password = DbUtils.GetString(reader, "Password"),
-                            Email = DbUtils.GetString(reader, "Email"),
-                            FaveTeam = DbUtils.GetNullableInt(reader, "FaveTeam"),
-                            ImageURL = DbUtils.GetNullableString(reader, "ImageURL")
-                        };
+                        user = NewUserFromReader(reader);
                     }
                     reader.Close();
 
@@ -96,6 +107,35 @@ namespace CDL_Predictor.Repositories
                     
 
                     cmd.ExecuteNonQuery();
+                }
+            }
+        }
+
+
+        public Users GetById(int id)
+        {
+            using (var conn = Connection)
+            {
+                conn.Open();
+                using (var cmd = conn.CreateCommand())
+                {
+                    cmd.CommandText = @"SELECT Id, Username, [Password], Email, FaveTeam, ImageURL
+                         FROM [Users]
+                         WHERE Id = @Id";
+
+                    cmd.Parameters.AddWithValue("@Id", id);
+                    var reader = cmd.ExecuteReader();
+
+                    Users user = null;
+
+                    if (reader.Read())
+                    {
+                        user = NewUserFromReader(reader);
+                    }
+
+                    reader.Close();
+
+                    return user;
                 }
             }
         }
