@@ -4,7 +4,7 @@
     {
         public int Id { get; set; }
         public string TeamName { get; set; }
-        public string TeamFullName { get; set; }
+        public string FullTeamName { get; set; }
         public int Seed { get; set; }
         public int HP { get; set; }
         public int SND { get; set; }

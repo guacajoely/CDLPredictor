@@ -14,6 +14,7 @@ namespace CDL_Predictor
 
             //Add Transients for each repository/interface here
             builder.Services.AddTransient<IUsersRepo, UsersRepo>();
+            builder.Services.AddTransient<ITeamsRepo, TeamsRepo>();
 
 
 
