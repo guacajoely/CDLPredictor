@@ -52,6 +52,30 @@ namespace CDL_Predictor.Repositories
         }
 
 
+        public void Add(Predictions prediction)
+        {
+            using (var conn = Connection)
+            {
+                conn.Open();
+                using (var cmd = conn.CreateCommand())
+                {
+                    cmd.CommandText = @"
+                        INSERT INTO Predictions (UserId, Team1, Team2, Team1Score, Team2Score)
+                        OUTPUT INSERTED.ID
+                        VALUES (@UserId, @Team1, @Team2, @Team1Score, @Team2Score)";
+
+                    cmd.Parameters.AddWithValue("@UserId", prediction.UserId);
+                    cmd.Parameters.AddWithValue("@Team1", prediction.Team1);
+                    cmd.Parameters.AddWithValue("@Team2", prediction.Team2);
+                    cmd.Parameters.AddWithValue("@Team1Score", prediction.Team1Score);
+                    cmd.Parameters.AddWithValue("@Team2Score", prediction.Team2Score);
+
+                    prediction.Id = (int)cmd.ExecuteScalar();
+                }
+            }
+        }
+
+
 
 
 

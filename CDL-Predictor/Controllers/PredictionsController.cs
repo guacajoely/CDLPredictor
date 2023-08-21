@@ -17,7 +17,7 @@ namespace CDL_Predictor.Controllers
         }
 
         [HttpGet("{userId}")]
-        public IActionResult GetByMedId(int userId)
+        public IActionResult GetByUserId(int userId)
         {
             List<Predictions> listOfPredictions = _predictionRepo.GetPredictionsByUserId(userId);
 
@@ -28,6 +28,14 @@ namespace CDL_Predictor.Controllers
             return Ok(listOfPredictions);
         }
 
+
+
+        [HttpPost]
+        public IActionResult Predictions(Predictions prediction)
+        {
+            _predictionRepo.Add(prediction);
+            return CreatedAtAction("GetByUserId", new { userId = prediction.UserId }, prediction);
+        }
 
 
 
