@@ -1,3 +1,5 @@
+using CDL_Predictor.Repositories;
+
 namespace CDL_Predictor
 {
     public class Program
@@ -9,6 +11,13 @@ namespace CDL_Predictor
             // Add services to the container.
 
             builder.Services.AddControllers();
+
+            //Add Transients for each repository/interface here
+            builder.Services.AddTransient<IUsersRepo, UsersRepo>();
+
+
+
+
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
@@ -20,6 +29,13 @@ namespace CDL_Predictor
             {
                 app.UseSwagger();
                 app.UseSwaggerUI();
+
+                app.UseCors(options =>
+                {
+                    options.AllowAnyOrigin();
+                    options.AllowAnyMethod();
+                    options.AllowAnyHeader();
+                });
             }
 
             app.UseHttpsRedirection();
