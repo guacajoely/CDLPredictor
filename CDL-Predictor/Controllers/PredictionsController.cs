@@ -16,6 +16,7 @@ namespace CDL_Predictor.Controllers
             _predictionRepo = predictionRepo;
         }
 
+
         [HttpGet("{userId}")]
         public IActionResult GetByUserId(int userId)
         {
@@ -29,7 +30,6 @@ namespace CDL_Predictor.Controllers
         }
 
 
-
         [HttpPost]
         public IActionResult Predictions(Predictions prediction)
         {
@@ -37,14 +37,13 @@ namespace CDL_Predictor.Controllers
             return CreatedAtAction("GetByUserId", new { userId = prediction.UserId }, prediction);
         }
 
+
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
         {
             _predictionRepo.Delete(id);
             return NoContent();
         }
-
-
 
 
 

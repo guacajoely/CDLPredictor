@@ -1,5 +1,4 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using CDL_Predictor.Models;
 using CDL_Predictor.Repositories;
 
 namespace CDL_Predictor.Controllers
@@ -17,12 +16,12 @@ namespace CDL_Predictor.Controllers
         }
 
 
-
         [HttpGet]
         public ActionResult Get()
         {
             return Ok(_teamRepo.GetAllTeams());
         }
+
 
 
     }

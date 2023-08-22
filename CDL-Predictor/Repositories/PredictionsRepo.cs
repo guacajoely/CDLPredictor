@@ -31,8 +31,8 @@ namespace CDL_Predictor.Repositories
                 {
                     cmd.CommandText = @"
                         SELECT Id, UserId, Team1, Team2, Team1Score, Team2Score
-                         FROM Predictions
-                         WHERE UserId = @UserId";
+                        FROM Predictions
+                        WHERE UserId = @UserId";
 
                     DbUtils.AddParameter(cmd, "@UserId", userId);
 
@@ -76,7 +76,6 @@ namespace CDL_Predictor.Repositories
         }
 
 
-
         public void Delete(int id)
         {
             using (var conn = Connection)
@@ -84,9 +83,9 @@ namespace CDL_Predictor.Repositories
                 conn.Open();
                 using (var cmd = conn.CreateCommand())
                 {
-                    cmd.CommandText =
-                        @"DELETE FROM Predictions
-                            WHERE Id = @id";
+                    cmd.CommandText = @"
+                        DELETE FROM Predictions
+                        WHERE Id = @id";
 
                     cmd.Parameters.AddWithValue("@id", id);
 
@@ -94,11 +93,6 @@ namespace CDL_Predictor.Repositories
                 }
             }
         }
-
-
-
-
-
 
 
 

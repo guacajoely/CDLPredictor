@@ -9,7 +9,6 @@ namespace CDL_Predictor.Repositories
         public UsersRepo(IConfiguration configuration) : base(configuration) { }
 
 
-
         private Users NewUserFromReader(SqlDataReader reader)
         {
             return new Users()
@@ -19,12 +18,13 @@ namespace CDL_Predictor.Repositories
                 Password = DbUtils.GetString(reader, "Password"),
                 Email = DbUtils.GetString(reader, "Email"),
                 FaveTeam = DbUtils.GetNullableInt(reader, "FaveTeam"),
-                ImageURL = DbUtils.GetNullableString(reader, "ImageURL")
+                ImageURL = DbUtils.GetString(reader, "ImageURL")
             };
         }
 
 
-
+        //Gets a single user that matches the email provided at login
+        //also used at registration to confirm email does not already exist
         public Users GetByEmail(string email)
         {
             using (var conn = Connection)
@@ -47,6 +47,36 @@ namespace CDL_Predictor.Repositories
                     {
                         user = NewUserFromReader(reader);
                     }
+                    reader.Close();
+
+                    return user;
+                }
+            }
+        }
+
+
+        //Used in profile component to access entire user table
+        public Users GetById(int id)
+        {
+            using (var conn = Connection)
+            {
+                conn.Open();
+                using (var cmd = conn.CreateCommand())
+                {
+                    cmd.CommandText = @"SELECT Id, Username, [Password], Email, FaveTeam, ImageURL
+                         FROM [Users]
+                         WHERE Id = @Id";
+
+                    cmd.Parameters.AddWithValue("@Id", id);
+                    var reader = cmd.ExecuteReader();
+
+                    Users user = null;
+
+                    if (reader.Read())
+                    {
+                        user = NewUserFromReader(reader);
+                    }
+
                     reader.Close();
 
                     return user;
@@ -80,7 +110,6 @@ namespace CDL_Predictor.Repositories
         }
 
 
-
         public void Update(Users user)
         {
             using (var conn = Connection)
@@ -107,35 +136,6 @@ namespace CDL_Predictor.Repositories
                     
 
                     cmd.ExecuteNonQuery();
-                }
-            }
-        }
-
-
-        public Users GetById(int id)
-        {
-            using (var conn = Connection)
-            {
-                conn.Open();
-                using (var cmd = conn.CreateCommand())
-                {
-                    cmd.CommandText = @"SELECT Id, Username, [Password], Email, FaveTeam, ImageURL
-                         FROM [Users]
-                         WHERE Id = @Id";
-
-                    cmd.Parameters.AddWithValue("@Id", id);
-                    var reader = cmd.ExecuteReader();
-
-                    Users user = null;
-
-                    if (reader.Read())
-                    {
-                        user = NewUserFromReader(reader);
-                    }
-
-                    reader.Close();
-
-                    return user;
                 }
             }
         }

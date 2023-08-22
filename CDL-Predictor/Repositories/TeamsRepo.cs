@@ -8,6 +8,7 @@ namespace CDL_Predictor.Repositories
     {
         public TeamsRepo(IConfiguration configuration) : base(configuration) { }
 
+
         private Teams NewTeamFromReader(SqlDataReader reader)
         {
             return new Teams()
@@ -32,7 +33,7 @@ namespace CDL_Predictor.Repositories
                 {
                     cmd.CommandText = @"
                         SELECT Id, TeamName, FullTeamName, Seed, HP, SND, CON
-                         FROM Teams";
+                        FROM Teams";
 
                     var listOfTeams = new List<Teams>();
 
@@ -48,11 +49,6 @@ namespace CDL_Predictor.Repositories
                 }
             }
         }
-
-
-
-
-
 
 
 

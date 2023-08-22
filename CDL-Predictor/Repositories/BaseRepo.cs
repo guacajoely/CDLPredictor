@@ -5,8 +5,6 @@ namespace CDL_Predictor.Repositories
     public abstract class BaseRepo
     {
 
-
-
         private readonly string _connectionString;
 
         public BaseRepo(IConfiguration configuration)
