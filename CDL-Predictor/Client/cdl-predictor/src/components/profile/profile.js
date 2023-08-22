@@ -44,7 +44,7 @@ export const Profile = () => {
 
     //loop through teams state and grab users favorite team
     const matchingTeams = teams?.filter(team => team.id === user?.faveTeam)
-    const faveTeam = matchingTeams[0]?.fullName
+    const faveTeam = matchingTeams[0]?.fullTeamName
 
     const updateCurrentUser = (user) => {
 
@@ -161,7 +161,7 @@ export const Profile = () => {
                                 }
                             } >
 
-                            {teams.map((team) => { return <option key={`${team.id}`} value={`${team.id}`}>{team.fullName}</option> })}
+                            {teams.map((team) => { return <option key={`${team.id}`} value={`${team.id}`}>{team.fullTeamName}</option> })}
 
                         </select>
                     </div>
