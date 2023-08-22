@@ -1,0 +1,53 @@
+.predictions--container{
+    margin-bottom: 20px;
+}
+
+.prediction--card{
+    display: flex;
+    margin: 10px 0;
+    padding: 5px 10px;
+    border-radius: 15px;
+    border: thin solid black;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    width: 600px;
+    box-shadow: 0 3px 3px rgb(0 0 0 / 40%);
+}
+
+.prediction--score{
+    margin: 0 10px;
+    font-weight: bold;
+    font-size: x-large;
+    word-wrap: none;
+}
+
+.prediction--team1, .prediction--team2 {
+    font-size: large;
+    width: 300px;
+}
+
+.prediction {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.button--round{
+    border-radius: 50%;
+    padding: 0 7px 2px 7px;
+    margin: 5px;
+    background-color: black;
+    color: white;
+    border: solid thin white;
+    font-size: 1.2rem;
+}
+
+.button--round:hover {
+    background-color: white;
+    color: black;
+    border: solid thin black;
+    cursor: pointer;
+    /* padding: 0 8px 2px 8px;
+    font-weight: bold; */
+}

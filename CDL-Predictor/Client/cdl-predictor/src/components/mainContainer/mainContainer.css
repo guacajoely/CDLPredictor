@@ -1,0 +1,33 @@
+.home--container{
+    text-align: center;
+}
+  
+.teams--header, .results--header, .history--header, .about--header{
+    font-size: 40px;
+    font-weight: bold;
+    width: 90vw;
+    height: fit-content;
+    border: thick solid black;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 20px auto;
+    background-color: white;
+    box-shadow: 0 3px 3px rgb(0 0 0 / 40%);
+}
+
+.footer {
+    width: 100%;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height:50px;
+}
+
+.footer > a {
+    text-decoration: none;
+    color: white;
+}

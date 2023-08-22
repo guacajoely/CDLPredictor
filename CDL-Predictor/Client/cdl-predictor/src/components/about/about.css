@@ -1,0 +1,39 @@
+.about--container {
+    margin: 30px;
+    max-width: 500px;
+}
+
+.about--question {
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+.about--answer a {
+    font-weight: bold;
+    text-decoration: none;
+    font-size: large;
+    color: black;
+}
+
+.about--answer a:hover {
+    background-color: black;
+    color: white;
+    padding: 5px;
+}
+
+.not-a-button {
+    border: none;
+    font: inherit;
+    font-weight: bold;
+    font-size: large;
+}
+
+.not-a-button:hover {
+    background-color: black;
+    color: white;
+    padding: 5px;
+}
+
+.hidden {
+    display: none;
+}

@@ -1,0 +1,220 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
+
+::-webkit-scrollbar {
+  width: 13px
+}
+
+::-webkit-scrollbar-track {
+  background: var(--light-gray)
+}
+
+::-webkit-scrollbar-thumb {
+  background: black
+}
+
+
+body {
+  margin: 0;
+  font-family: 'Roboto Mono', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--light-gray);
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+* {
+
+  --light-gray: #f2f2f2;
+  --faze-bkgr: #e43d30;
+  --breach-bkgr: #1a1f29;
+  --mutineers-bkgr: #025157;
+  --ravens-bkgr: #000f9f;
+  --guerrillas-bkgr: #000000;
+  --thieves-bkgr: #000000;
+  --rokkr-bkgr: #351f65;
+  --subliners-bkgr: #fff000;
+  --optic-bkgr: #000000;
+  --legion-bkgr: #131e29;
+  --surge-bkgr: #001231;
+  --ultra-bkgr: #780df2;
+
+  --transition: 0.15s;
+  --border-radius: 0.5rem;
+  --green-shadow: #39ff07;
+  --green-transparent: rgba(57, 255, 7, 0.3);
+  --red-shadow: #ff1300;
+  --red-transparent: rgba(255, 20, 0, 0.3);
+
+}
+
+@media only screen and (max-width: 800px) {
+
+  .navbar {
+    flex-direction: column;
+    height: auto;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .navbar--image-profile {
+    display: none;
+  }
+
+  .navbar--image {
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .navbar--links--right {
+    align-items: center;
+    margin-bottom: 20px;
+    margin-right: 0;
+    height: auto;
+  }
+
+  .navbar--image-mobile {
+    display: block;
+  }
+
+  .navbar--profile--link {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+
+  .teams--container {
+    max-height: 700px;
+    width: 100%;
+    max-width: 400px;
+    box-sizing: border-box;
+    margin-top: 30px;
+    padding: 10px;
+  }
+
+  .team--image {
+    width: 90px;
+    height: 90px;
+    box-sizing: border-box;
+  }
+
+  .team--card {
+    width: 110px;
+    height: 110px;
+    box-sizing: border-box;
+    margin-bottom: 30px;
+  }
+
+  .team--label {
+    font-size: .8rem;
+    height: 125px;
+    padding: 2px;
+  }
+
+  .prediction--score {
+    font-size: small;
+  }
+
+  .prediction--team1,
+  .prediction--team2 {
+    font-size: smaller;
+  }
+
+  .prediction--container {
+    width: 100vw;
+  }
+
+  .prediction--card {
+    width: 85%;
+    max-width: 420px;
+  }
+
+  .results--text {
+    font-size: small;
+    box-sizing: border-box;
+  }
+
+
+  .prediction--text {
+    font-size: smaller;
+    box-sizing: border-box;
+  }
+
+  .results--image {
+    width: 80px;
+    height: 80px;
+    padding: 10px;
+    border: solid var(--light-gray);
+    border-radius: 25px;
+    flex-shrink: 1;
+    object-fit: contain;
+    margin-bottom: 0px;
+  }
+
+  .results--text--table {
+    width: 170px;
+    font-size: small;
+    padding: 0;
+    margin: 0;
+    margin-top: 32px;
+  }
+
+  .results--text--table>tr>td {
+    width: 170px;
+    font-size: small;
+    padding: 4px;
+    margin: 0;
+  }
+
+  .team--table {
+    width: 80px;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+  }
+
+  .team--table>tr>td {
+    width: 80px;
+    font-size: small;
+    padding: 4px;
+    margin: 0;
+    text-align: center;
+  }
+
+  .results--container {
+    width: 100%;
+    box-sizing: border-box;
+    margin-top: 10px;
+  }
+
+  .results--text--table>tr {
+    margin: 9px;
+  }
+
+  .results--text {
+    width: 80px;
+    height: 80px;
+    margin-top: 25px;
+  }
+
+  .loser--overall,
+  .winner--overall {
+    margin-top: 10px;
+  }
+
+  .results--summary {
+    box-sizing: border-box;
+    width: 90%;
+  }
+
+}

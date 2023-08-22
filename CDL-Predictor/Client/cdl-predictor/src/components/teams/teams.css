@@ -1,0 +1,111 @@
+.teams--container {
+    display: flex;
+    flex: 0 0 auto;
+    flex-direction: column;
+    flex-wrap: wrap;
+    max-height:750px;
+    max-width: 900px;
+    justify-content: space-around;
+    align-items: center;
+    margin: auto;
+}
+
+.team--card {
+    height: 220px;
+    width: 220px;
+    border: solid var(--light-gray);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 1;
+    transition: transform var(--transition);
+    margin-bottom: 20px;
+}
+
+.team--card:active {
+    transform: scale(0.9);
+}
+
+.team--image {
+    width: 180px;
+    height: 180px;
+    padding: 10px;
+    border: solid var(--light-gray);
+    border-radius: 25px;
+    flex-shrink: 1;
+}
+
+.team--label {
+    display: inline-block;
+    cursor: pointer;
+    padding-bottom: 0px;
+    border: solid var(--light-gray);
+    border-radius: 25px;
+    font-size: 15px;
+    text-align: center;
+    opacity: .6;
+    color:var(--light-gray);
+    box-shadow: 0 0 0 3px var(--light-gray);
+}
+
+input {
+    display: none;
+}
+
+.checked{
+    opacity: 1;
+    color: black;
+    box-shadow: 0 0 0 3px var(--green-shadow);
+}
+
+label img {
+    object-fit: contain;
+}
+
+.faze-image {
+    background: var(--faze-bkgr);
+}
+
+.breach-image {
+    background: var(--breach-bkgr);
+}
+
+.mutineers-image {
+    background: var(--mutineers-bkgr);
+}
+
+.ravens-image {
+    background: var(--ravens-bkgr);
+}
+
+.guerrillas-image {
+    background: var(--guerrillas-bkgr);
+}
+
+.thieves-image {
+    background: var(--thieves-bkgr);
+}
+
+.rokkr-image {
+    background: var(--rokkr-bkgr);
+}
+
+.subliners-image {
+    background: var(--subliners-bkgr);
+}
+
+.optic-image {
+    background: var(--optic-bkgr);
+}
+
+.legion-image {
+    background: var(--legion-bkgr);
+}
+
+.surge-image {
+    background: var(--surge-bkgr);
+}
+
+.ultra-image {
+    background: var(--ultra-bkgr);
+}

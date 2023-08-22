@@ -1,0 +1,165 @@
+.results--image{
+    width: 180px;
+    height: 180px;
+    padding: 10px;
+    border: solid var(--light-gray);
+    border-radius: 25px;
+    flex-shrink: 1;
+    object-fit: contain;
+}
+
+.results--text{
+    width: 180px;
+    height: 180px;
+    border: solid var(--light-gray);
+    font-weight: bolder;
+    font-size: x-large;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+td {
+    text-align: center;
+    padding: 10px;
+}
+
+.results--container{
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+.team--table{
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    margin: 20px 0;
+}
+
+.prediction--text{
+    padding:25px 0;
+    font-size: larger;
+}
+
+.team--table > tr {
+    margin: 10px;
+}
+
+.team--table > tr {
+    background-color: white;
+}
+
+.team--table > tr > td {
+    width: 300px;
+    border: 1px solid;
+    text-align: center;
+    padding: 10px;
+}
+
+.team--name{
+    font-weight: bold;
+    box-shadow: 0 2px 2px rgb(0 0 0 / 40%);
+}
+
+.results--text--table{
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+.results--text--table > tr {
+    margin: 10px;
+    padding: 2px;
+}
+
+.results--text--table > tr > td {
+    width: 300px;
+}
+
+.team--container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.winner{
+    background-color: var(--green-transparent);
+    box-shadow: 0 0 2px 1px var(--green-shadow);
+}
+
+.loser{
+    background-color: var(--red-transparent);
+    box-shadow: 0 0 4px 1px var(--red-shadow);
+}
+
+.loser--overall, .winner--overall{
+    font-weight: bold;
+    font-size: 3.2rem;
+    background-color: var(--light-gray);
+    border: none;
+    margin-top: 35px;
+}
+
+.winner--overall{
+    color:darkgreen;
+    text-shadow: lime 1px 1px 1px;
+}
+
+.loser--overall{
+    color:darkred;
+    text-shadow: pink 1px 1px 1px;
+}
+
+.winner--image{
+    border: solid white;
+    box-shadow: 0 0 4px 2px var(--green-shadow);
+}
+
+.loser--image{
+    border: solid white;
+    box-shadow: 0 0 4px 2px var(--red-shadow);
+}
+
+.button{
+    background-color: black;
+    color: white;
+    border: solid thin white;
+    padding: 10px;
+    border-radius: 15px;
+    margin:0 10px;
+    box-shadow: 0 3px 3px rgb(0 0 0 / 40%);
+}
+
+.button:hover {
+    background-color: white;
+    color: black;
+    border: solid thin black;
+    cursor: pointer;
+    box-shadow: 0 5px 5px rgb(0 0 0 / 40%);
+}
+
+.button--container{
+    margin: 20px 0 40px 0;
+}
+
+.results--summary{
+    width: 600px;
+    margin: 5px auto;
+    border: thin solid black;
+    padding: 10px;
+    background-color: white;
+    box-shadow: 0 3px 3px rgb(0 0 0 / 40%);
+}
+
+.summary--header{
+    margin: none;
+    padding: none;
+}
