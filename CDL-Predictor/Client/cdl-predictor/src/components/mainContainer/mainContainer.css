@@ -1,6 +1,10 @@
 .home--container{
     text-align: center;
 }
+
+.teams--header{
+    scroll-margin: 500px;
+}
   
 .teams--header, .results--header, .history--header, .about--header{
     font-size: 40px;

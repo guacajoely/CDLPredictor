@@ -6,7 +6,7 @@ import "./login.css"
 
 export const Login = () => {
 
-    const [email, set] = useState("user@user.com")
+    const [email, set] = useState("test@email.com")
     const navigate = useNavigate()
 
     const handleLogin = (event) => {
@@ -18,6 +18,7 @@ export const Login = () => {
                     const user = foundUser
                     localStorage.setItem("current_user", JSON.stringify({
                         id: user.id,
+                        //also storing username and imageurl in localStorage to access w/out fetching from DB
                         username: user.username,
                         imageURL: user.imageURL
                     }))

@@ -94,7 +94,7 @@ export const ResultsSection = ({ checkedTeamsState, scrollToTeams, scrollToPredi
     //.5 second timeout added because scroll up was not delayed enough in mobile test
     const handleNewPrediction = () => {
         checkedTeamsSetterFunction([])
-        setTimeout(scrollToTeams, 500)
+        setTimeout(scrollToTeams, 100)
     }
 
     const reFetchPredictions = () => {

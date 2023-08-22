@@ -15,18 +15,6 @@ fieldset {
     text-align: left;
 }
 
-/* .form--login>fieldset>input[type="text"] {
-    min-width: 15em;
-}
-
-.form--login>fieldset>input[type="email"] {
-    min-width: 15em;
-}
-
-.form--login>fieldset>input[type="password"] {
-    min-width: 15em;
-} */
-
 .label--login {
     width: 8rem;
     display: inline-block;
